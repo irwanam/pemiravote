@@ -7,7 +7,7 @@
 		$pageviews['mainarea']="login.php";
 	}
 	else {
-		$pageviews['mainarea']="userstats.php";
+		$pageviews['mainarea']="panel.php";
 	}
 ?>
 <!DOCTYPE html>
@@ -16,6 +16,9 @@
 		<title><?php echo $CONFIG['title']; ?> | </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<?php
+			if($pageviews['mainarea']=="panel.php")echo '<link rel="stylesheet" href="./css/panel-style.css">';
+		?>
 		<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -23,18 +26,6 @@
 	</head>
 	<body>
 		<div class="container">
-			<header>
-				<div class="row clearfix">
-					<div class="header">
-						<div class="row">
-							<div class="col-md-8">
-								<h1><?php echo $CONFIG['organizations']; ?> <small><?php echo $CONFIG['title']; ?></small></h1>
-							</div>
-							<div class="col-md-4"></div>
-						</div>
-					</div>
-				</div>
-			</header>
 			<section>
 				<div class="row clearfix">
 					<div class="col-md-12">

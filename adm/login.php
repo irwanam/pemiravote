@@ -1,17 +1,12 @@
 <div class="row spacer"></div>
 <div class="row clearfix ">
 	<div class="col-md-3 center">
-		<form role="form" method="post">
+		<form role="form" method="post" class="form-signin">
 			<div class="form-group">
-				<label for="InputEmailLogin">Email address</label>
+				<h2 class="form-signin-heading">Login here</h2>
 				<input type="email" class="form-control" id="InputEmailLogin" name="EmailLogin" placeholder="Enter email" required />
-			</div>
-			<div class="form-group">
-				<label for="InputPasswordLogin">Password</label>
 				<input type="password" class="form-control" id="InputPasswordLogin" name="PasswordLogin" placeholder="Password" required />
-			</div>
-			<div class="form-group">
-				<input name="SubmitLogin" type="submit" class="btn btn-primary" value="Login" />
+				<input name="SubmitLogin" type="submit" class="btn btn-lg btn-primary btn-block" value="Sign In" />
 			</div>
 		</form>
 		<div class="form-group">

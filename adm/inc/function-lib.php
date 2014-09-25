@@ -8,12 +8,20 @@
 		return $result;
 	}
 	
+	function runquery($sql) {
+		global $CONFIG;
+		$con=mysqli_connect($CONFIG['sql_host'],$CONFIG['sql_username'],$CONFIG['sql_password'],$CONFIG['sql_dbname']);
+		mysqli_query($con,$sql);
+		mysqli_close($con);
+	}
+	
 	function login($email,$password) {
 		$sql="SELECT * FROM users WHERE email='$email' and password=md5('$password')";
 		$result = getquery($sql);
 		if(mysqli_num_rows($result)!=0){
 			while($row = mysqli_fetch_array($result)) {
 				if(check_active_user($row['idusers'])==1){
+					update_last_login($row['idusers']);
 					$_SESSION['idusers'] = $row['idusers'];
 					header("location:index.php");
 					exit;
@@ -62,6 +70,11 @@
 			$active = 0;
 			return $active;
 		}
+	}
+	
+	function update_last_login($idusers) {
+		$sql="UPDATE users set last_login=CURRENT_TIMESTAMP where idusers=$idusers";
+		runquery($sql);
 	}
 	
 	function msg_show($title) {
