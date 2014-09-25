@@ -1,12 +1,13 @@
 <?php
 	include("./inc/function-lib.php");
 	include("./inc/config.php");
+	include("./inc/language.php");
 	session_start();
 	if(!isset($_SESSION['idusers'])){
-		$pageviews['userstats']="login.php";
+		$pageviews['mainarea']="login.php";
 	}
 	else {
-		$pageviews['userstats']="userstats.php";
+		$pageviews['mainarea']="userstats.php";
 	}
 ?>
 <!DOCTYPE html>
@@ -37,7 +38,7 @@
 			<section>
 				<div class="row clearfix">
 					<div class="col-md-12">
-						<?php include($pageviews["userstats"]); ?>
+						<?php include($pageviews["mainarea"]); ?>
 					</div>
 				</div>
 			</section>

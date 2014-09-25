@@ -8,6 +8,6 @@
 
 	//Konfigurasi Aplikasi
 	$CONFIG['title']			=	'PEMIRA ONLINE VOTE';		//Nama Aplikasi
-	$CONFIG['organizations']	=	'UDINUS'					//Nama Organisasi
-
+	$CONFIG['organizations']	=	'UDINUS';					//Nama Organisasi
+	$CONFIG['language']			=	'ID';
 ?>
