@@ -7,7 +7,7 @@
 	$CONFIG['sql_dbname']		=	'pemira';		// ragnarok database name
 
 	//Konfigurasi Aplikasi
-	$CONFIG['title']			=	'PEMIRA ONLINE VOTE';		//Nama Aplikasi
-	$CONFIG['organizations']	=	'UDINUS';					//Nama Organisasi
+	$CONFIG['title']			=	'PEMIRA';		//Nama Aplikasi
+	$CONFIG['organizations']	=	'UDINUS';		//Nama Organisasi
 	$CONFIG['language']			=	'ID';
 ?>

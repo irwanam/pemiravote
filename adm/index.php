@@ -9,11 +9,14 @@
 	else {
 		$pageviews['mainarea']="panel.php";
 	}
+	
+	//Logout
+	if(isset($_GET['logout']))logout();
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo $CONFIG['title']; ?> | </title>
+		<title><?php echo $CONFIG['title'].' | '.$CONFIG['organizations']; ?></title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<?php
@@ -25,17 +28,9 @@
 		<![endif]-->
 	</head>
 	<body>
-		<div class="container">
-			<section>
-				<div class="row clearfix">
-					<div class="col-md-12">
-						<?php include($pageviews["mainarea"]); ?>
-					</div>
-				</div>
-			</section>
-		</div>
+		<?php include($pageviews["mainarea"]); ?>
 		<footer>
-			
+
 		</footer>
 		<script src="./js/jquery-1.11.1.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>

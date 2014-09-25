@@ -77,6 +77,21 @@
 		runquery($sql);
 	}
 	
+	function get_user_info($idusers,$var) {
+		$sql="SELECT * FROM users WHERE idusers=$idusers";
+		$result = getquery($sql);
+		if(mysqli_num_rows($result)!=0){
+			while($row = mysqli_fetch_array($result)) {
+				$data = $row[$var];
+			}
+			return $data;
+		}
+		else {
+			$data = "failed";
+			return $data;
+		}		
+	}
+	
 	function msg_show($title) {
 		global $CONFIG,$MSG;
 		$show = $MSG[$CONFIG['language']][$title];
