@@ -11,19 +11,17 @@
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li class="active"><a href="?">Home</a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php menu_show('USERS');?> <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
+						<li class="dropdown-header"><?php menu_show('COMMITEE');?></li>
+						<li><a href="?commitee"><?php menu_show('COMMITEE_ALL');?></a></li>
+						<li><a href="#"><?php menu_show('COMMITEE_ADD');?></a></li>
 						<li class="divider"></li>
-						<li class="dropdown-header">Nav header</li>
-						<li><a href="#">Separated link</a></li>
-						<li><a href="#">One more separated link</a></li>
+						<li class="dropdown-header"><?php menu_show('VOTERS');?></li>
+						<li><a href="#"><?php menu_show('VOTERS_ALL');?></a></li>
+						<li><a href="#"><?php menu_show('VOTERS_ADD');?></a></li>
 					</ul>
 				</li>
 			</ul>
@@ -31,9 +29,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <?php echo get_user_info($_SESSION['idusers'],'email');?></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Profile</a></li>
 						<li class="divider"></li>
 						<li><a href="?logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
 					</ul>
@@ -43,6 +39,11 @@
 	</div>
 </div>
 <div class="container">
+	<div class="col-md-9">
+		<?php include($pageviews['content']);?>
+	</div>
+	<div class="col-md-3">
 	
+	</div>
 </div> <!-- /container -->
 

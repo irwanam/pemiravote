@@ -27,12 +27,12 @@
 					exit;
 				}
 				else{
-					echo msg_show('CHECK_EMAIL_ACT').$row['email'];
+					msg_show('CHECK_EMAIL_ACT').$row['email'];
 				}
 			}
 		}
 		else {
-			echo msg_show('LOGIN_FAILED');
+			msg_show('LOGIN_FAILED');
 		}
 	}
 	
@@ -92,9 +92,47 @@
 		}		
 	}
 	
+	function get_users_all() {
+		$sql="SELECT * FROM users";
+		$userall = getquery($sql);
+		if(mysqli_num_rows($userall)!=0){
+			while($row = mysqli_fetch_array($userall)){
+				$data[] = array(
+					'idusers' => $row['idusers'],
+					'email' => $row['email'],
+					'password' => $row['password'],
+					'group' => $row['group'],
+					'active' => $row['active'],
+					'vote' => $row['vote'],
+					'last_login' => $row['last_login'],					
+					'last_update' => $row['last_update']					
+				);
+			}
+		}
+		else {
+			$data = array(
+				'idusers' => 'null',
+				'email' => 'null',
+				'password' => 'null',
+				'group' => 'null',
+				'active' => 'null',
+				'vote' => 'null',
+				'last_login' => 'null',					
+				'last_update' => 'null'					
+			);
+		}
+		return $data;
+	}
+	
 	function msg_show($title) {
 		global $CONFIG,$MSG;
 		$show = $MSG[$CONFIG['language']][$title];
-		return $show;
-	}	
+		echo $show;
+	}
+	
+	function menu_show($title) {
+		global $CONFIG,$MENU;
+		$show = $MENU[$CONFIG['language']][$title];
+		echo $show;
+	}
 ?>

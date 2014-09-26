@@ -8,8 +8,29 @@
 	}
 	else {
 		$pageviews['mainarea']="panel.php";
+		$pageviews['content']="dashboard.php";
 	}
 	
+	//Commitee
+	$commite = array('commitee','commitee-opt');
+	if(isset($_GET['commitee'])){
+		if(empty($_GET['commitee'])){
+			$pageviews['content']="commitee.php";
+		}
+		else {
+			foreach($commite as $value){
+				if($_GET['commitee']==$value){
+					$link = $_GET['commitee'];
+				}
+				else{
+					$link = 'commitee';
+				}
+			}
+			$pageviews['content']=$link.'.php';
+		}
+	}
+	unset($commite,$value,$link);
+	//-------Commitee End-------------
 	//Logout
 	if(isset($_GET['logout']))logout();
 ?>
