@@ -57,8 +57,8 @@
 		}
 	}
 	
-	function check_group_user($idusers) {
-		$sql="SELECT group FROM users WHERE idusers=$idusers";
+	function check_user_active($idusers) {
+		$sql="SELECT active FROM users WHERE idusers=$idusers";
 		$result = getquery($sql);
 		if(mysqli_num_rows($result)!=0){
 			while($row = mysqli_fetch_row($result)) {
@@ -92,8 +92,8 @@
 		}		
 	}
 	
-	function get_users_all() {
-		$sql="SELECT * FROM users";
+	function get_commitee_all() {
+		$sql="SELECT * FROM users where role >= 1";
 		$userall = getquery($sql);
 		if(mysqli_num_rows($userall)!=0){
 			while($row = mysqli_fetch_array($userall)){
@@ -101,27 +101,37 @@
 					'idusers' => $row['idusers'],
 					'email' => $row['email'],
 					'password' => $row['password'],
-					'group' => $row['group'],
+					'role' => $row['role'],
 					'active' => $row['active'],
-					'vote' => $row['vote'],
+					'vote_point' => $row['vote_point'],
 					'last_login' => $row['last_login'],					
 					'last_update' => $row['last_update']					
 				);
 			}
 		}
 		else {
-			$data = array(
+			$data[] = array(
 				'idusers' => 'null',
 				'email' => 'null',
 				'password' => 'null',
-				'group' => 'null',
-				'active' => 'null',
-				'vote' => 'null',
+				'role' => -1,
+				'active' => -1,
+				'vote' => -1,
 				'last_login' => 'null',					
 				'last_update' => 'null'					
 			);
 		}
 		return $data;
+	}
+	
+	function define_users_role($role) {
+		global $CONFIG,$UROLE;
+		return $UROLE[$CONFIG['language']][$role];
+	}
+	
+	function define_users_active($active) {
+		global $CONFIG,$UACTIVE;
+		return $UACTIVE[$CONFIG['language']][$active];
 	}
 	
 	function msg_show($title) {

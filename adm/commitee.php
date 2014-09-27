@@ -14,26 +14,26 @@
 				<tr>
 					<th>#</th>
 					<th>E-Mail</th>
-					<th>Group</th>
-					<th>Active</th>
+					<th>Role</th>
+					<th>Status</th>
 					<th>Last Login</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-					$userall=get_users_all();
+					$userall=get_commitee_all();
 					foreach($userall as $row){
 				?>
 					<tr>
 						<td><?php echo $row['idusers'];?></td>
 						<td><?php echo $row['email'];?></td>
-						<td><?php echo $row['group'];?></td>
-						<td><?php echo $row['active'];?></td>
+						<td><?php echo define_users_role($row['role']);?></td>
+						<td><?php echo define_users_active($row['active']);?></td>
 						<td><?php echo $row['last_login'];?></td>
 						<td>
 							<div class="btn-group">
-								<button type="button" class="btn btn-danger btn-xs dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></button>
+								<button type="button" class="btn btn-warning btn-xs dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></button>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="#">Action</a></li>
 									<li><a href="#">Another action</a></li>
