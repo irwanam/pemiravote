@@ -77,8 +77,8 @@
 		runquery($sql);
 	}
 	
-	function get_user_info($idusers,$var) {
-		$sql="SELECT * FROM users WHERE idusers=$idusers";
+	function get_users_info($idusers,$var) {
+		$sql="SELECT * FROM users INNER JOIN users_detail ON users.idusers=$idusers";
 		$result = getquery($sql);
 		if(mysqli_num_rows($result)!=0){
 			while($row = mysqli_fetch_array($result)) {
@@ -124,6 +124,34 @@
 		return $data;
 	}
 	
+	function get_users_details($idusers) {
+		$sql="SELECT * FROM users_detail where idusers=$idusers";
+		$userall = getquery($sql);
+		if(mysqli_num_rows($userall)!=0){
+			while($row = mysqli_fetch_array($userall)){
+				$data[] = array(
+					'name' => $row['idusers'],
+					'nim' => $row['email'],
+					'idmajors' => $row['password'],
+					'ipk' => $row['role'],
+					'lecturer' => $row['active'],
+					'last_update' => $row['last_update']					
+				);
+			}
+		}
+		else {
+			$data[] = array(
+				'name' => 'null',
+				'nim' => 'null',
+				'idmajors' => 'null',
+				'ipk' => 'null',
+				'lecturer' => 'null',
+				'last_update' => 'null'					
+			);
+		}
+		return $data;
+	}
+	
 	function define_users_role($role) {
 		global $CONFIG,$UROLE;
 		return $UROLE[$CONFIG['language']][$role];
@@ -143,6 +171,12 @@
 	function menu_show($title) {
 		global $CONFIG,$MENU;
 		$show = $MENU[$CONFIG['language']][$title];
+		echo $show;
+	}
+	
+	function label_show($title) {
+		global $CONFIG,$LABEL;
+		$show = $LABEL[$CONFIG['language']][$title];
 		echo $show;
 	}
 ?>

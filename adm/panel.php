@@ -11,7 +11,7 @@
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="?">Home</a></li>
+				<li><a href="?"><span class="glyphicon glyphicon-home"></span> <?php label_show('DASHBOARD'); ?></a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php menu_show('USERS');?> <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
@@ -29,10 +29,11 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="caret"></a>
 					<ul class="dropdown-menu" role="menu">
-						<li class="dropdown-header"><?php echo get_user_info($_SESSION['idusers'],'email');?></li>
+						<li class="dropdown-header"><span class="badge"><?php echo get_users_info($_SESSION['idusers'],'name');?></span></li>
+						<li class="dropdown-header"><?php echo get_users_info($_SESSION['idusers'],'email');?></li>
 						<li class="divider"></li>
-						<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Profile</a></li>
-						<li><a href="?logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-cog"></span> <?php label_show('PROFILE'); ?></a></li>
+						<li><a href="?logout"><span class="glyphicon glyphicon-off"></span> <?php label_show('SIGNOUT'); ?></a></li>
 					</ul>
 				</li>
 			</ul>

@@ -24,4 +24,11 @@
 	$UACTIVE['ID'][1]				= 'Aktif';
 	$UACTIVE['ID'][-1]				= 'null';
 
+	//Label
+	$LABEL['ID']['LOGIN_HERE']		= 'Login Disini';
+	$LABEL['ID']['DASHBOARD']		= 'Dashboard';
+	$LABEL['ID']['SIGNIN']			= 'Masuk';
+	$LABEL['ID']['SIGNOUT']			= 'Keluar';
+	$LABEL['ID']['PROFILE']			= 'Profil';
+
 ?>

@@ -4,10 +4,10 @@
 		<div class="col-md-3 center">
 			<form role="form" method="post" class="form-signin">
 				<div class="form-group">
-					<h2 class="form-signin-heading">Login here</h2>
-					<input type="email" class="form-control" id="InputEmailLogin" name="EmailLogin" placeholder="Enter email" required />
-					<input type="password" class="form-control" id="InputPasswordLogin" name="PasswordLogin" placeholder="Password" required />
-					<input name="SubmitLogin" type="submit" class="btn btn-lg btn-primary btn-block" value="Sign In" />
+					<h2 class="form-signin-heading"><?php label_show('LOGIN_HERE'); ?></h2>
+					<input type="email" class="form-control" id="InputEmailLogin" name="EmailLogin" placeholder="E-Mail" required >
+					<input type="password" class="form-control" id="InputPasswordLogin" name="PasswordLogin" placeholder="Password" required >
+					<input name="SubmitLogin" type="submit" class="btn btn-lg btn-primary btn-block" value="<?php label_show('SIGNIN'); ?>" >
 				</div>
 			</form>
 			<div class="form-group">
