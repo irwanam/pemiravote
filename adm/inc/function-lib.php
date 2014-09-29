@@ -27,12 +27,12 @@
 					exit;
 				}
 				else{
-					msg_show('CHECK_EMAIL_ACT').$row['email'];
+					msg_show('warning','CHECK_EMAIL_ACT','').$row['email'];
 				}
 			}
 		}
 		else {
-			msg_show('LOGIN_FAILED');
+			msg_show('danger','LOGIN_FAILED','');
 		}
 	}
 	
@@ -162,10 +162,13 @@
 		return $UACTIVE[$CONFIG['language']][$active];
 	}
 	
-	function msg_show($title) {
+	function msg_show($type,$title,$link) {
 		global $CONFIG,$MSG;
 		$show = $MSG[$CONFIG['language']][$title];
-		echo $show;
+		echo	'<div class="alert alert-dismissable alert-'.$type.'">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					'.$show.'<a href="#" class="alert-link">'.$link.'</a>
+				</div>';
 	}
 	
 	function menu_show($title) {

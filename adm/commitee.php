@@ -4,14 +4,14 @@
 <div class="row clearfix">
 	<div class="panel panel-default">
 		<!-- Default panel contents -->
-		<div class="panel-heading">Panitia</div>
+		<div class="panel-heading"><?php label_show('COMMITEE'); ?></div>
 		<div class="panel-body">
 			<form role="search">
 				<div class="btn-group pull-right">
-					<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> Add New</button>
+					<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> <?php menu_show('COMMITEE_ADD');?></button>
 					
-						<input type="text "class="btn btn-default btn-sm" >
-						<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+						<input type="search" class="btn btn-primary btn-sm" >
+						<button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
 					
 				</div>
 			</form>
@@ -43,10 +43,10 @@
 							<div class="btn-group">
 								<button type="button" class="btn btn-warning btn-xs dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></button>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
-									<li><a href="#"><span class="glyphicon glyphicon-remove"></span> Delete</a></li>
+									<li><a href="#"><span class="glyphicon glyphicon-pencil"></span> <?php label_show('EDIT'); ?></a></li>
+									<li><a href="#"><span class="glyphicon glyphicon-remove"></span> <?php label_show('DELETE'); ?></a></li>
 									<li class="divider"></li>
-									<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Details</a></li>
+									<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> <?php label_show('DETAIL'); ?></a></li>
 								</ul>
 							</div>
 						</td>

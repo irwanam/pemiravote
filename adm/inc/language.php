@@ -30,5 +30,10 @@
 	$LABEL['ID']['SIGNIN']			= 'Masuk';
 	$LABEL['ID']['SIGNOUT']			= 'Keluar';
 	$LABEL['ID']['PROFILE']			= 'Profil';
+	$LABEL['ID']['COMMITEE']		= 'Panitia';
+	$LABEL['ID']['EDIT']			= 'Sunting';
+	$LABEL['ID']['SAVE']			= 'Simpan';
+	$LABEL['ID']['DELETE']			= 'Hapus';
+	$LABEL['ID']['DETAIL']			= 'Detail';
 
 ?>
