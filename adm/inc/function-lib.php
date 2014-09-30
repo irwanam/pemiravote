@@ -183,4 +183,5 @@
 		$show = $LABEL[$CONFIG['language']][$title];
 		echo $show;
 	}
+	
 ?>

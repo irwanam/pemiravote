@@ -71,5 +71,16 @@
 			$sname = 'null';
 			return $sname;
 		}
-	}	
+	}
+	
+	function compare($var1,$var2) {
+		$result=0;
+		if($var1==$var2)$result=1;
+		return $result;
+	}
+	
+	function register($email,$password) {
+		$sql="INSERT INTO users (email,password) VALUES ($email,$password)";
+		runquery($sql);
+	}
 ?>

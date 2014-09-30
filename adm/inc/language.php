@@ -28,6 +28,7 @@
 	$LABEL['ID']['LOGIN_HERE']		= 'Login Disini';
 	$LABEL['ID']['DASHBOARD']		= 'Dashboard';
 	$LABEL['ID']['SIGNIN']			= 'Masuk';
+	$LABEL['ID']['SIGNUP']			= 'Mendaftar';
 	$LABEL['ID']['SIGNOUT']			= 'Keluar';
 	$LABEL['ID']['PROFILE']			= 'Profil';
 	$LABEL['ID']['COMMITEE']		= 'Panitia';
@@ -35,5 +36,16 @@
 	$LABEL['ID']['SAVE']			= 'Simpan';
 	$LABEL['ID']['DELETE']			= 'Hapus';
 	$LABEL['ID']['DETAIL']			= 'Detail';
+	$LABEL['ID']['CANCEL']			= 'Batal';
+	$LABEL['ID']['REGISTER']		= 'Daftar';
+
+	$LABEL['ID']['REG_FORM']		= 'Formulir Pendaftaran';
+	$LABEL['ID']['EMAIL']			= 'Alamat E-Mail';
+	$LABEL['ID']['PASSWORD']		= 'Kata Sandi';
+	$LABEL['ID']['REPASSWORD']		= 'Ulang Kata Sandi';
+	$LABEL['ID']['MAJORS']			= 'Jurusan';
+	$LABEL['ID']['SELECTONCE']		= '- Pilih Salah Satu -';
+	$LABEL['ID']['CANCEL']			= 'Batal';
+
 
 ?>
