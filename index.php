@@ -1,5 +1,6 @@
 <?php
 	include("./inc/function-lib.php");
+	include("./adm/inc/function-lib.php");
 	include("./adm/inc/config.php");
 	include("./adm/inc/language.php");
 	session_start();

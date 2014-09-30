@@ -95,24 +95,24 @@
 			<div class="modal-body">
 				<form role="form">
 					<div class="form-group">
-						<label for="InputName">Nama</label><input type="email" class="form-control" id="InputNama" />
+						<label for="InputEmail">Email address</label><input type="email" class="form-control" id="InputEmail" required/>
 					</div>
 					<div class="form-group">
-						<label for="InputEmail">Email address</label><input type="email" class="form-control" id="InputEmail" />
+						<label for="InputPassword1">Password</label><input type="password" class="form-control" id="InputPassword1" required/>
 					</div>
 					<div class="form-group">
-						<label for="InputPassword">Password</label><input type="password" class="form-control" id="InputPassword" />
-					</div>
-					<div class="form-group">
-						<label for="InputFaculty">Fakultas</label>
-						<select class="form-control" id="InputFaculty">
-							<option value="">-Pilih Fakultas-</option>
-						</select>
+						<label for="InputPassword2">Re-enter Password</label><input type="password" class="form-control" id="InputPassword2" required/>
 					</div>
 					<div class="form-group">
 						<label for="InputMajors">Jurusan</label>
-						<select class="form-control" id="InputMajors">
+						<select class="form-control" id="InputMajors" required>
 							<option value="">-Pilih Jurusan-</option>
+							<?php
+								$majorlist = get_majors_all();
+								foreach($majorlist as $data_majors){
+									echo '<option value='.$data_majors["idmajors"].'>'.define_faculty_sname($data_majors["idfaculty"]).' / '.$data_majors["majors_name"].' - '.define_majors_levels($data_majors["idmajors_levels"]).'</option>';
+								}
+							?>
 						</select>
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>

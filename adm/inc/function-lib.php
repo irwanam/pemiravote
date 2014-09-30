@@ -130,11 +130,12 @@
 		if(mysqli_num_rows($userall)!=0){
 			while($row = mysqli_fetch_array($userall)){
 				$data[] = array(
-					'name' => $row['idusers'],
-					'nim' => $row['email'],
-					'idmajors' => $row['password'],
-					'ipk' => $row['role'],
-					'lecturer' => $row['active'],
+					'idusers' => $row['idusers'],
+					'name' => $row['name'],
+					'nim' => $row['nim'],
+					'idmajors' => $row['idmajors'],
+					'ipk' => $row['ipk'],
+					'lecturer' => $row['lecturer'],
 					'last_update' => $row['last_update']					
 				);
 			}
