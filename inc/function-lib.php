@@ -79,8 +79,22 @@
 		return $result;
 	}
 	
-	function register($email,$password) {
-		$sql="INSERT INTO users (email,password) VALUES ($email,$password)";
-		runquery($sql);
+	function register($email,$password1,$password2) {
+		$password = md5($password1);
+		$sql="INSERT INTO users (email,password) VALUES ('$email','$password')";
+		if(check_email_exist($email)==0){
+			if(compare($password1,$password2)==1){
+				runquery($sql);
+				msg_show('success','REG_SUCCESS','');
+			}
+			else{
+				msg_show('danger','REG_PASS_FAIL','');
+			}
+		}
+		else{
+			msg_show('warning','REG_EMAIL_EXIST','');
+		}
 	}
+	
+
 ?>

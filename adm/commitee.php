@@ -21,10 +21,10 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>E-Mail</th>
-					<th>Role</th>
-					<th>Status</th>
-					<th>Last Login</th>
+					<th><?php label_show('EMAIL'); ?></th>
+					<th><?php label_show('ROLE'); ?></th>
+					<th><?php label_show('STATUS'); ?></th>
+					<th><?php label_show('LAST_LOGIN'); ?></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -37,7 +37,7 @@
 						<td><?php echo $row['idusers'];?></td>
 						<td><?php echo $row['email'];?></td>
 						<td><?php echo define_users_role($row['role']);?></td>
-						<td><?php echo define_users_active($row['active']);?></td>
+						<td><a href="?commitee=cstatus&uid=<?php echo $row['idusers'];?>"><?php echo active_status_button($row['active']);?></a></td>
 						<td><?php echo $row['last_login'];?></td>
 						<td>
 							<div class="btn-group">

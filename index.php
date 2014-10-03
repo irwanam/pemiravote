@@ -18,6 +18,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title><?php echo $CONFIG['title'].' | '.$CONFIG['organizations']; ?></title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<!--[if lt IE 9]>

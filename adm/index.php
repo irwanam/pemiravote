@@ -7,29 +7,33 @@
 		$pageviews['mainarea']="login.php";
 	}
 	else {
-		$pageviews['mainarea']="panel.php";
-		$pageviews['content']="dashboard.php";
+		if($_SESSION['role']>=1){
+			$pageviews['mainarea']="panel.php";
+			$pageviews['content']="dashboard.php";
+		}
+		else{
+			header("location:../index.php");
+		}
 	}
 	
 	//Commitee
-	$commite = array('commitee','commitee-opt');
+	$act = array('cstatus');
 	if(isset($_GET['commitee'])){
 		if(empty($_GET['commitee'])){
 			$pageviews['content']="commitee.php";
 		}
 		else {
-			foreach($commite as $value){
+			foreach($act as $value){
 				if($_GET['commitee']==$value){
-					$link = $_GET['commitee'];
-				}
-				else{
-					$link = 'commitee';
+					$action = $_GET['commitee'];
+					if($action=='cstatus'&isset($_GET['uid']))update_users_status($_GET['uid']);
 				}
 			}
-			$pageviews['content']=$link.'.php';
+			$pageviews['content']="commitee.php";
 		}
 	}
-	unset($commite,$value,$link);
+	
+	unset($act,$value,$action);
 	//-------Commitee End-------------
 	//Logout
 	if(isset($_GET['logout']))logout();
@@ -37,7 +41,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo $CONFIG['title'].' | '.$CONFIG['organizations']; ?></title>
+		<title><?php label_show('DASHBOARD');echo ' ‹ '.$CONFIG['title'].' | '.$CONFIG['organizations']; ?></title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<?php

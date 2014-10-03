@@ -11,7 +11,9 @@
 	function runquery($sql) {
 		global $CONFIG;
 		$con=mysqli_connect($CONFIG['sql_host'],$CONFIG['sql_username'],$CONFIG['sql_password'],$CONFIG['sql_dbname']);
-		mysqli_query($con,$sql);
+		if (!mysqli_query($con,$sql)) {
+			die('Error: ' . mysqli_error($con));
+		}
 		mysqli_close($con);
 	}
 	
@@ -23,6 +25,7 @@
 				if(check_active_user($row['idusers'])==1){
 					update_last_login($row['idusers']);
 					$_SESSION['idusers'] = $row['idusers'];
+					$_SESSION['role'] = $row['role'];
 					header("location:index.php");
 					exit;
 				}
@@ -38,7 +41,7 @@
 	
 	function logout() {
 		session_destroy();
-		session_unset($_SESSION['idusers']);
+		session_unset($_SESSION['idusers'],$_SESSION['role']);
 		header("location:index.php");
 	}
 	
@@ -152,6 +155,40 @@
 		}
 		return $data;
 	}
+
+	function check_email_exist($email){
+		$sql="SELECT email FROM users WHERE email='$email'";
+		$result = getquery($sql);
+		if(mysqli_num_rows($result)!=0){
+			$exist = 1;
+			return $exist;
+		}
+		else {
+			$exist = 0;
+			return $exist;
+		}		
+	}
+	
+	function active_status_button($status){
+		$type='success';
+		$glyphicon = 'glyphicon glyphicon-ok-circle';
+		if($status==0){
+			$type='danger';
+			$glyphicon ='glyphicon glyphicon-ban-circle';
+		}
+		echo '<button type="button" class="btn btn-'.$type.' btn-xs" ><span class="'.$glyphicon.'"></span> '.define_users_active($status).'</button>';
+	}
+	
+	function update_users_status($idusers){
+		$status=get_users_info($idusers,'active');
+		if($status==0){
+			$sql="UPDATE users SET active=1 WHERE idusers=$idusers";
+		}
+		else{
+			$sql="UPDATE users SET active=0 WHERE idusers=$idusers";
+		}
+		runquery($sql);
+	}
 	
 	function define_users_role($role) {
 		global $CONFIG,$UROLE;
@@ -162,7 +199,7 @@
 		global $CONFIG,$UACTIVE;
 		return $UACTIVE[$CONFIG['language']][$active];
 	}
-	
+
 	function msg_show($type,$title,$link) {
 		global $CONFIG,$MSG;
 		$show = $MSG[$CONFIG['language']][$title];

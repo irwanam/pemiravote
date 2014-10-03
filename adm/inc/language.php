@@ -11,6 +11,9 @@
 	//Message
 	$MSG['ID']['CHECK_EMAIL_ACT']	= 'Kami telah mengirimkan pesan untuk pentunjuk aktivasi ke email anda. ';
 	$MSG['ID']['LOGIN_FAILED']		= 'Login gagal, email atau password anda salah!';
+	$MSG['ID']['REG_PASS_FAIL']		= 'Pendaftaran gagal, password anda tidak sama!';
+	$MSG['ID']['REG_SUCCESS']		= 'Pendaftaran berhasil, silahkan login dan aktivasi akun anda!';
+	$MSG['ID']['REG_EMAIL_EXIST']	= 'Pendaftaran gagal, email tidak tersedia atau sudah digunakan';
 	
 	//Users ROLE
 	$UROLE['ID'][99]				= 'Administrator';
@@ -38,9 +41,12 @@
 	$LABEL['ID']['DETAIL']			= 'Detail';
 	$LABEL['ID']['CANCEL']			= 'Batal';
 	$LABEL['ID']['REGISTER']		= 'Daftar';
+	$LABEL['ID']['ROLE']			= 'Tugas';
+	$LABEL['ID']['STATUS']			= 'Status';
+	$LABEL['ID']['LAST_LOGIN']		= 'Terakhir Login';
 
 	$LABEL['ID']['REG_FORM']		= 'Formulir Pendaftaran';
-	$LABEL['ID']['EMAIL']			= 'Alamat E-Mail';
+	$LABEL['ID']['EMAIL']			= 'E-Mail';
 	$LABEL['ID']['PASSWORD']		= 'Kata Sandi';
 	$LABEL['ID']['REPASSWORD']		= 'Ulang Kata Sandi';
 	$LABEL['ID']['MAJORS']			= 'Jurusan';

@@ -1,1 +1,1 @@
-<h2>Dashboard</h2>
+<h2><?php label_show('DASHBOARD'); ?></h2>

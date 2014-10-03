@@ -13,7 +13,7 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img alt="" src="http://lorempixel.com/1600/500/sports/1" />
+						<img alt="" src="assets/img/jumbotron1.jpg" />
 						<div class="carousel-caption">
 							<h4>
 								First Thumbnail label
@@ -24,7 +24,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img alt="" src="http://lorempixel.com/1600/500/sports/2" />
+						<img alt="" src="assets/img/jumbotron2.jpg" />
 						<div class="carousel-caption">
 							<h4>
 								Second Thumbnail label
@@ -35,7 +35,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img alt="" src="http://lorempixel.com/1600/500/sports/3" />
+						<img alt="" src="assets/img/jumbotron3.jpg" />
 						<div class="carousel-caption">
 							<h4>
 								Third Thumbnail label
@@ -59,22 +59,22 @@
 			</blockquote>
 		</div>
 		<div class="col-md-4 column">
-			<form class="form-horizontal" role="form">
+			<form method="post" class="form-horizontal" role="form">
 				<div class="col-sm-12 form-group">
 					<div class="input-group">
 					  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-					  <input type="email" class="form-control" placeholder="<?php label_show('EMAIL'); ?>" required>
+					  <input type="email" class="form-control" placeholder="<?php label_show('EMAIL'); ?>" name="EmailLogin" required>
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
 					<div class="input-group">
 					  <span class="input-group-addon"><span class="glyphicon glyphicon-certificate"></span></span>
-					  <input type="password" class="form-control" placeholder="<?php label_show('PASSWORD'); ?>" required>
+					  <input type="password" class="form-control" placeholder="<?php label_show('PASSWORD'); ?>" name="PasswordLogin" required>
 					</div>
 				</div>
 				<div class="col-sm-12 form-group ">
 					<div class="btn-group pull-right">
-					  <button type="button" class="btn btn-primary"><?php label_show('SIGNIN'); ?></button>
+					  <input type="submit" class="btn btn-primary" value="<?php label_show('SIGNIN'); ?>" name="SubmitLogin"/>
 					  <a class="btn-group" href="#modal-container-signup" id="modal-signup" data-toggle="modal" ><button type="button" class="btn btn-default"><?php label_show('SIGNUP'); ?></button></a>
 					</div>
 				</div>
@@ -82,5 +82,9 @@
 		</div>
 	</div>
 </div>
-
-<?php include('register.php');?>
+<?php
+	if(isset($_POST['SubmitLogin'])){
+		if($_POST['SubmitLogin'])login($_POST['EmailLogin'],$_POST['PasswordLogin']);
+	}
+	include('register.php');
+?>
